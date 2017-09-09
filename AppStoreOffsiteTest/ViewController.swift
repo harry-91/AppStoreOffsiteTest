@@ -9,10 +9,29 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    
+    let paginator = AppStoreAPIClient.shared.paginatorOfApps()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
+//        
+//        paginator.fetchNext { (apps, error) in
+//            for var app in apps {
+//                AppStoreAPIClient.shared.fetchAppDetails(of: app.identifier, completion: { (jsonObject, error) in
+//                    guard let jsonObject = jsonObject,
+//                        error == nil else {
+//                        return
+//                    }
+//                    
+//                    let detail = App.Detail.from(jsonObject: jsonObject)
+//                    app.detail = detail
+//                })
+//            }
+//        }
     }
 
     override func didReceiveMemoryWarning() {
