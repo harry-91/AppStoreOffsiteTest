@@ -77,15 +77,37 @@
                                                     <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gLc-XX-guK" customClass="RateDisplayView" customModule="AppStoreOffsiteTest" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="25.5" width="50" height="10"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qoN-le-L7e">
+                                                    <rect key="frame" x="0.0" y="25.5" width="262.5" height="10"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AxM-z6-c99">
+                                                            <rect key="frame" x="54.5" y="-1" width="26.5" height="12"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                            <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gLc-XX-guK" customClass="RateDisplayView" customModule="AppStoreOffsiteTest" customModuleProvider="target">
+                                                            <rect key="frame" x="-0.5" y="0.0" width="50" height="10"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="50" id="FEX-yk-ku4"/>
+                                                                <constraint firstAttribute="height" constant="10" id="JXc-de-5Mc"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="50" id="FEX-yk-ku4"/>
-                                                        <constraint firstAttribute="height" constant="10" id="JXc-de-5Mc"/>
+                                                        <constraint firstItem="gLc-XX-guK" firstAttribute="leading" secondItem="qoN-le-L7e" secondAttribute="leading" constant="-0.5" id="CBd-mb-GJf"/>
+                                                        <constraint firstItem="AxM-z6-c99" firstAttribute="leading" secondItem="gLc-XX-guK" secondAttribute="trailing" constant="5" id="J3h-xr-r95"/>
+                                                        <constraint firstItem="gLc-XX-guK" firstAttribute="centerY" secondItem="qoN-le-L7e" secondAttribute="centerY" id="R33-TN-PFe"/>
+                                                        <constraint firstItem="AxM-z6-c99" firstAttribute="centerY" secondItem="qoN-le-L7e" secondAttribute="centerY" id="qjc-3C-1HZ"/>
+                                                        <constraint firstAttribute="height" constant="10" id="ygQ-od-WOb"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="qoN-le-L7e" firstAttribute="width" secondItem="M1v-ac-cjP" secondAttribute="width" id="x52-TZ-MHt"/>
+                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
@@ -104,7 +126,9 @@
                                 <connections>
                                     <outlet property="categoryLabel" destination="x6U-gG-bhT" id="Qvt-Ox-lN5"/>
                                     <outlet property="numberLabel" destination="esj-p5-urN" id="oKp-uF-Orv"/>
+                                    <outlet property="rateContainerView" destination="qoN-le-L7e" id="WIS-Di-W44"/>
                                     <outlet property="rateDisplayView" destination="gLc-XX-guK" id="Yvx-UA-IBk"/>
+                                    <outlet property="rateLabel" destination="AxM-z6-c99" id="Vsl-xR-mTl"/>
                                     <outlet property="titleLabel" destination="xFg-Zs-Y5o" id="hyo-cY-yEw"/>
                                     <outlet property="webImageView" destination="Fae-I5-xjo" id="pm0-to-kf8"/>
                                 </connections>

@@ -50,13 +50,14 @@ class ListingPresenter: ListingModuleInterface {
     }
     
     func loadMoreApps() {
-//        interactor?.loadMoreApps(completion: { (moreApps, error) in
-//            guard error == nil else {
-//                return
-//            }
-//            
-//            apps.append(contentsOf: moreApps)
-//        })
+        interactor?.loadMoreApps(completion: { [weak self] (moreApps, error) in
+            guard error == nil else {
+                return
+            }
+            
+            self?.apps.append(contentsOf: moreApps)
+            self?.userInterface?.reloadData()
+        })
     }
     
     

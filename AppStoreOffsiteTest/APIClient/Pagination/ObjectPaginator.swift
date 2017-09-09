@@ -103,7 +103,11 @@ public extension Paginator {
             self.page = page
         }
         
-        let results: [T] = data.getList(fieldName) ?? []
+        var results: [T] = data.getList(fieldName) ?? []
+        
+        if results.count == limit * page {
+            results.removeSubrange(0..<(limit * (page - 1)))
+        }
         
         completion?(results, nil)
     }

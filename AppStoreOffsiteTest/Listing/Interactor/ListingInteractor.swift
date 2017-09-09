@@ -53,6 +53,15 @@ class ListingInteractor: ListingInteractorInterface {
     
     
     func loadMoreApps(completion: @escaping ([App], Error?) -> ()) {
+        paginator.fetchNext { (apps, error) in
+            guard error == nil else {
+                completion([], error)
+                
+                return
+            }
+            
+            completion(apps, nil)
+        }
     }
 }
 
