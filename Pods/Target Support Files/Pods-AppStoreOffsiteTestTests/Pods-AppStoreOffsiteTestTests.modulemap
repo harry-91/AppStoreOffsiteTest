@@ -1,0 +1,6 @@
+framework module Pods_AppStoreOffsiteTestTests {
+  umbrella header "Pods-AppStoreOffsiteTestTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

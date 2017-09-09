@@ -1,0 +1,21 @@
+PODS:
+  - SVPullToRefresh (0.4.1)
+
+DEPENDENCIES:
+  - SVPullToRefresh (from `git@github.com:HarryPan91/SVPullToRefresh.git`)
+
+EXTERNAL SOURCES:
+  SVPullToRefresh:
+    :git: git@github.com:HarryPan91/SVPullToRefresh.git
+
+CHECKOUT OPTIONS:
+  SVPullToRefresh:
+    :commit: 5918ef33df99961f79ee9b9c561874c07d949706
+    :git: git@github.com:HarryPan91/SVPullToRefresh.git
+
+SPEC CHECKSUMS:
+  SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
+
+PODFILE CHECKSUM: 062e7b68393aadef2166d7cbca362d33669141b9
+
+COCOAPODS: 1.2.0
