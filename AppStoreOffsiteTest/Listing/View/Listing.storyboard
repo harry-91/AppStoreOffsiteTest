@@ -101,7 +101,7 @@
                                                         <constraint firstItem="AxM-z6-c99" firstAttribute="leading" secondItem="gLc-XX-guK" secondAttribute="trailing" constant="5" id="J3h-xr-r95"/>
                                                         <constraint firstItem="gLc-XX-guK" firstAttribute="centerY" secondItem="qoN-le-L7e" secondAttribute="centerY" id="R33-TN-PFe"/>
                                                         <constraint firstItem="AxM-z6-c99" firstAttribute="centerY" secondItem="qoN-le-L7e" secondAttribute="centerY" id="qjc-3C-1HZ"/>
-                                                        <constraint firstAttribute="height" constant="10" id="ygQ-od-WOb"/>
+                                                        <constraint firstAttribute="height" priority="999" constant="10" id="ygQ-od-WOb"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>

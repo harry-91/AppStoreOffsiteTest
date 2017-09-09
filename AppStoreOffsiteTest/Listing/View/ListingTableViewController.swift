@@ -14,9 +14,12 @@ class ListingTableViewController: UITableViewController {
     
     fileprivate lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
+        searchBar.placeholder = "SEARCH"
+        searchBar.delegate = self
         
         return searchBar
     }()
+    fileprivate var isCancelButtonClicked = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +27,8 @@ class ListingTableViewController: UITableViewController {
         navigationItem.titleView = searchBar
         
         tableView.backgroundColor = .white
+        tableView.keyboardDismissMode = .onDrag
+        tableView.tableFooterView = UIView()
 
         eventHandler?.updateApps()
         eventHandler?.updateGrossingApps()
@@ -38,6 +43,7 @@ class ListingTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -62,11 +68,15 @@ class ListingTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        searchBar.resignFirstResponder()
         
         eventHandler?.tableView(tableView, didSelectRowAt: indexPath)
     }
 
 }
+
+
+// MARK: - ListingViewInterface
 
 extension ListingTableViewController: ListingViewInterface {
     func reloadData() {
@@ -94,5 +104,39 @@ extension ListingTableViewController: ListingViewInterface {
                              with: .bottom)
         
         tableView.endUpdates()
+    }
+    
+    func disableInfiniteScrolling() {
+        tableView.showsInfiniteScrolling = false
+    }
+    
+    func enableInfiniteScrolling() {
+        tableView.showsInfiniteScrolling = true
+    }
+}
+
+
+// MARK: - UISearchBarDelegate
+
+extension ListingTableViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        eventHandler?.search(with: searchText)
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        guard searchBar.text == "" else {
+            return
+        }
+        
+        eventHandler?.searchBarTextDidBeginEditing()
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        guard searchBar.text == "" else {
+            return
+        }
+        
+        eventHandler?.searchBarTextDidEndEditing()
     }
 }

@@ -23,4 +23,8 @@ protocol ListingModuleInterface {
     func titleForHeader(in section: Int) -> String?
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    
+    func search(with keyword: String)
+    func searchBarTextDidBeginEditing()
+    func searchBarTextDidEndEditing()
 }

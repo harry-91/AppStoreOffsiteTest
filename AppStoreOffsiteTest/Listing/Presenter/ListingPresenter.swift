@@ -10,20 +10,19 @@ import Foundation
 import UIKit
 
 class ListingPresenter: ListingModuleInterface {
-
+    
     weak var userInterface: ListingViewInterface?
     var wireframe: ListingWireframe?
     
     var interactor: ListingInteractorInterface?
     
     
-    fileprivate var grossingApps = [App]() {
-        didSet {
-            userInterface?.reloadRows(at: [IndexPath(row: 0,
-                                                     section: 0)])
-        }
-    }
+    fileprivate var grossingApps = [App]()
     fileprivate var apps = [App]()
+    
+    fileprivate var storedGrossingApps = [App]()
+    fileprivate var storedApps = [App]()
+
     
     // MARK: - ListingModuleInterface
     
@@ -46,6 +45,8 @@ class ListingPresenter: ListingModuleInterface {
             }
             
             self?.grossingApps = apps
+            self?.userInterface?.reloadRows(at: [IndexPath(row: 0,
+                                                           section: 0)])
         })
     }
     
@@ -65,6 +66,10 @@ class ListingPresenter: ListingModuleInterface {
                                              section: 1))
             }
             this.userInterface?.performUpdates(at: indexPathes)
+            
+            if this.apps.count == 100 {
+                this.userInterface?.disableInfiniteScrolling()
+            }
         })
     }
     
@@ -120,5 +125,62 @@ class ListingPresenter: ListingModuleInterface {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    }
+    
+    
+    // MARK: - Searching
+    
+    func search(with keyword: String) {
+        defer {
+            userInterface?.reloadData()
+        }
+        
+        guard keyword != "" else {
+            apps.removeAll()
+            grossingApps.removeAll()
+            
+            apps.append(contentsOf: storedApps)
+            grossingApps.append(contentsOf: storedGrossingApps)
+            
+            return
+        }
+        
+        let keyword = keyword.lowercased()
+        let filteredGrossingApps = storedGrossingApps.filter { $0.artist.lowercased().contains(keyword) ||
+            $0.category.lowercased().contains(keyword) ||
+            $0.name.lowercased().contains(keyword) ||
+            $0.summary.lowercased().contains(keyword) }
+        let filteredApps = storedApps.filter { $0.artist.lowercased().contains(keyword) ||
+            $0.category.lowercased().contains(keyword) ||
+            $0.name.lowercased().contains(keyword) ||
+            $0.summary.lowercased().contains(keyword) }
+        
+        grossingApps = filteredGrossingApps
+        apps = filteredApps
+    }
+    
+    func searchBarTextDidBeginEditing() {
+        userInterface?.disableInfiniteScrolling()
+        
+        storedApps.removeAll()
+        storedGrossingApps.removeAll()
+        
+        storedApps.append(contentsOf: apps)
+        storedGrossingApps.append(contentsOf: grossingApps)
+    }
+    
+    func searchBarTextDidEndEditing() {
+        apps.removeAll()
+        grossingApps.removeAll()
+        
+        apps.append(contentsOf: storedApps)
+        grossingApps.append(contentsOf: storedGrossingApps)
+        
+        storedApps.removeAll()
+        storedGrossingApps.removeAll()
+        
+        userInterface?.reloadData()
+        
+        userInterface?.enableInfiniteScrolling()
     }
 }
