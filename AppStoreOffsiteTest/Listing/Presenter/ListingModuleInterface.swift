@@ -20,7 +20,7 @@ protocol ListingModuleInterface {
     
     func cellForRow(at indexPath: IndexPath, for tableView: UITableView) -> UITableViewCell
     func heightForRow(at indexPath: IndexPath) -> CGFloat
-    func titleForHeader(in section: Int) -> String?
+    func viewForHeader(in section: Int) -> UIView?
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     

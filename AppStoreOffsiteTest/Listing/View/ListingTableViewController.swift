@@ -62,15 +62,23 @@ class ListingTableViewController: UITableViewController {
         return eventHandler?.heightForRow(at: indexPath) ?? UITableViewAutomaticDimension
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return eventHandler?.titleForHeader(in: section)
-    }
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         searchBar.resignFirstResponder()
         
         eventHandler?.tableView(tableView, didSelectRowAt: indexPath)
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 70
+        }
+        
+        return UITableViewAutomaticDimension
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return eventHandler?.viewForHeader(in: section)
     }
 
 }

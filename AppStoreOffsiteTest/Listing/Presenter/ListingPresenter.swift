@@ -22,7 +22,7 @@ class ListingPresenter: ListingModuleInterface {
     
     fileprivate var storedGrossingApps = [App]()
     fileprivate var storedApps = [App]()
-
+    
     
     // MARK: - ListingModuleInterface
     
@@ -116,9 +116,16 @@ class ListingPresenter: ListingModuleInterface {
             return UITableViewAutomaticDimension
         }
     }
-    func titleForHeader(in section: Int) -> String? {
+    
+    func viewForHeader(in section: Int) -> UIView? {
         if section == 0 {
-            return "Recommendation"
+            let textView = UITextView()
+            textView.isUserInteractionEnabled = false
+            textView.font = UIFont.boldSystemFont(ofSize: 28)
+            textView.text = "Recommendation"
+            textView.textContainerInset = UIEdgeInsets(top: 30, left: 10, bottom: 0, right: 0)
+            
+            return textView
         }
         
         return nil
