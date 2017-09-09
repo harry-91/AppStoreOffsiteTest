@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVPullToRefresh
 
 class ListingTableViewController: UITableViewController {
     var eventHandler: ListingModuleInterface?
@@ -26,6 +27,10 @@ class ListingTableViewController: UITableViewController {
 
         eventHandler?.updateApps()
         eventHandler?.updateGrossingApps()
+        
+        tableView.addInfiniteScrolling { [weak self] in
+            self?.eventHandler?.loadMoreApps()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,5 +75,24 @@ extension ListingTableViewController: ListingViewInterface {
     
     func reloadRows(at indexPathes: [IndexPath]) {
         tableView.reloadRows(at: indexPathes, with: .automatic)
+    }
+    
+    func performUpdates(at indexPathes: [IndexPath]) {
+        defer {
+            tableView.infiniteScrollingView.stopAnimating()
+        }
+        
+        guard indexPathes.count > 0 else {
+            tableView.showsInfiniteScrolling = false
+            
+            return
+        }
+        
+        tableView.beginUpdates()
+        
+        tableView.insertRows(at: indexPathes,
+                             with: .bottom)
+        
+        tableView.endUpdates()
     }
 }

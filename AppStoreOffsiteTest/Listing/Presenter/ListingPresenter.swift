@@ -51,12 +51,20 @@ class ListingPresenter: ListingModuleInterface {
     
     func loadMoreApps() {
         interactor?.loadMoreApps(completion: { [weak self] (moreApps, error) in
-            guard error == nil else {
+            guard error == nil, let this = self else {
                 return
             }
             
-            self?.apps.append(contentsOf: moreApps)
-            self?.userInterface?.reloadData()
+            
+            let count = this.apps.count
+            this.apps.append(contentsOf: moreApps)
+            
+            var indexPathes = [IndexPath]()
+            for index in count ..< (count + moreApps.count) {
+                indexPathes.append(IndexPath(row: index,
+                                             section: 1))
+            }
+            this.userInterface?.performUpdates(at: indexPathes)
         })
     }
     

@@ -11,4 +11,5 @@ import Foundation
 protocol ListingViewInterface: class {
     func reloadData()
     func reloadRows(at indexPathes: [IndexPath])
+    func performUpdates(at indexPathes: [IndexPath])
 }
