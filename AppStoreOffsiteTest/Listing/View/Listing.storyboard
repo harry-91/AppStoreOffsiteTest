@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qDm-2g-aXG">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Listing Table View Controller-->
+        <scene sceneID="4VH-k1-y0q">
+            <objects>
+                <tableViewController storyboardIdentifier="ListingTableViewController" id="qDm-2g-aXG" customClass="ListingTableViewController" customModule="AppStoreOffsiteTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="8e5-ff-gVx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecommendationTableViewCell" rowHeight="180" id="Pja-lc-zz1" customClass="RecommendationTableViewCell" customModule="AppStoreOffsiteTest" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="180"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Pja-lc-zz1" id="0pU-Ul-i4l">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="179.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i4Y-yg-Gil" customClass="HorizontalScrollView" customModule="AppStoreOffsiteTest" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="8" width="375" height="163.5"/>
+                                        </scrollView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="i4Y-yg-Gil" secondAttribute="bottom" id="AeQ-5s-eKi"/>
+                                        <constraint firstItem="i4Y-yg-Gil" firstAttribute="leading" secondItem="0pU-Ul-i4l" secondAttribute="leading" id="Ems-ew-Knb"/>
+                                        <constraint firstAttribute="trailing" secondItem="i4Y-yg-Gil" secondAttribute="trailing" id="g2J-zf-pDp"/>
+                                        <constraint firstItem="i4Y-yg-Gil" firstAttribute="top" secondItem="0pU-Ul-i4l" secondAttribute="topMargin" id="ptT-vl-mm4"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="scrollView" destination="i4Y-yg-Gil" id="5r3-fc-lFW"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListingTableViewCell" rowHeight="100" id="PJP-CN-7Jl" customClass="ListingTableViewCell" customModule="AppStoreOffsiteTest" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="208" width="375" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PJP-CN-7Jl" id="lWa-vF-4OF">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="esj-p5-urN">
+                                            <rect key="frame" x="13" y="39.5" width="10.5" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fae-I5-xjo" customClass="WebImageView" customModule="AppStoreOffsiteTest" customModuleProvider="target">
+                                            <rect key="frame" x="33.5" y="16" width="66" height="66"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="66" id="ABf-gx-V9U"/>
+                                                <constraint firstAttribute="width" secondItem="Fae-I5-xjo" secondAttribute="height" multiplier="1:1" id="tFc-eI-e0r"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFg-Zs-Y5o">
+                                            <rect key="frame" x="104.5" y="16" width="262.5" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="M1v-ac-cjP">
+                                            <rect key="frame" x="104.5" y="46.5" width="262.5" height="35.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6U-gG-bhT">
+                                                    <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gLc-XX-guK" customClass="RateDisplayView" customModule="AppStoreOffsiteTest" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="25.5" width="50" height="10"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="FEX-yk-ku4"/>
+                                                        <constraint firstAttribute="height" constant="10" id="JXc-de-5Mc"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="leadingMargin" secondItem="esj-p5-urN" secondAttribute="leading" constant="-5" id="I3w-F7-ly6"/>
+                                        <constraint firstItem="xFg-Zs-Y5o" firstAttribute="leading" secondItem="Fae-I5-xjo" secondAttribute="trailing" constant="5" id="KqZ-DY-aWD"/>
+                                        <constraint firstItem="esj-p5-urN" firstAttribute="centerY" secondItem="lWa-vF-4OF" secondAttribute="centerY" id="Lbi-fL-DUD"/>
+                                        <constraint firstItem="M1v-ac-cjP" firstAttribute="width" secondItem="xFg-Zs-Y5o" secondAttribute="width" id="Pc3-Bj-Qok"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="xFg-Zs-Y5o" secondAttribute="trailing" id="Tg0-4x-p7n"/>
+                                        <constraint firstItem="M1v-ac-cjP" firstAttribute="leading" secondItem="xFg-Zs-Y5o" secondAttribute="leading" id="VOr-mI-TEC"/>
+                                        <constraint firstItem="Fae-I5-xjo" firstAttribute="leading" secondItem="esj-p5-urN" secondAttribute="trailing" constant="10" id="bxN-iR-6Kg"/>
+                                        <constraint firstItem="M1v-ac-cjP" firstAttribute="bottom" secondItem="Fae-I5-xjo" secondAttribute="bottom" id="ecG-rn-dup"/>
+                                        <constraint firstItem="Fae-I5-xjo" firstAttribute="centerY" secondItem="lWa-vF-4OF" secondAttribute="centerY" id="hyZ-Bi-xv7"/>
+                                        <constraint firstItem="xFg-Zs-Y5o" firstAttribute="top" secondItem="Fae-I5-xjo" secondAttribute="top" id="xwr-um-ADp"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="categoryLabel" destination="x6U-gG-bhT" id="Qvt-Ox-lN5"/>
+                                    <outlet property="numberLabel" destination="esj-p5-urN" id="oKp-uF-Orv"/>
+                                    <outlet property="rateDisplayView" destination="gLc-XX-guK" id="Yvx-UA-IBk"/>
+                                    <outlet property="titleLabel" destination="xFg-Zs-Y5o" id="hyo-cY-yEw"/>
+                                    <outlet property="webImageView" destination="Fae-I5-xjo" id="pm0-to-kf8"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="qDm-2g-aXG" id="jzs-9k-Nm6"/>
+                            <outlet property="delegate" destination="qDm-2g-aXG" id="nrK-7V-quw"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4OK-jq-9zI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-468" y="-287.40629685157421"/>
+        </scene>
+    </scenes>
+</document>

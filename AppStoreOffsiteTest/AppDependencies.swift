@@ -12,8 +12,13 @@ import UIKit
 class AppDependencies {
     
     static let shared = AppDependencies()
-
+    
+    let listingWireframe = ListingWireframe()
     
     func installRootViewControllerIntoWindow(_ window: UIWindow) {
+        let viewController = ListingWireframe.instantiateListingTableViewController(listingWireframe)
+        listingWireframe.viewController = viewController
+        window.rootViewController = UINavigationController(rootViewController: viewController)
     }
 }
+
