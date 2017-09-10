@@ -28,6 +28,8 @@ final class HorizontalScrollView: UIScrollView {
         willSet {
             if newValue.count > 0 {
                 subviews.forEach { $0.removeFromSuperview() }
+                
+                appViews.removeAll()
             }
         }
         didSet {
@@ -41,6 +43,8 @@ final class HorizontalScrollView: UIScrollView {
         willSet {
             if newValue.count > 0 {
                 subviews.forEach { $0.removeFromSuperview() }
+                
+                webImageViews.removeAll()
             }
         }
         didSet {

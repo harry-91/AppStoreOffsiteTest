@@ -208,6 +208,10 @@ class ListingPresenter: ListingModuleInterface {
 extension ListingPresenter: RecommendationTableViewCellDelegate {
     func recommendationTableViewCell(_ recommendationTableViewCell: RecommendationTableViewCell,
                                      didSelectItemAt index: Int) {
+        guard index < grossingApps.count else {
+            return
+        }
+        
         wireframe?.pushAppDetailInterface(with: grossingApps[index])
     }
 }
