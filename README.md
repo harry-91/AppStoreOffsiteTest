@@ -7,18 +7,15 @@ App Store listing page.
 - iOS 9.0
 
 
-# Description
+# Demo
 
-The app has two modules: **Listing** and **AppDetail**.   
-
-At home module, it will display trackings in 30 days and will show a status summary chat on the top. The tracking will be grouped by status. The display order of status is *Failed Attempt*, *Exception*, *Out for Delivery*, *In Transit*, *Info Received*, *Pending*, *Delivered* and *Expired*. So users can find the important shippment first. 
-
-AllTrackings module will display 8 trackings every time and use infinite scroll to load more. In both home and allTrackings modules, it can push the trackingDetails module in and display all checkpoints and milestones for specified tracking.  
-
-
+![Demo](https://raw.github.com/harry-91/AppStoreOffsiteTest/master/Assets/Demo.gif)
 
 
 # Architectural
+
+
+The app has two modules: **Listing** and **AppDetail**.
 
 Using VIPER instead of MVC. 
 VIPER is an application of Clean Architecture to iOS apps. It can help to avoid massive view controller problem in MVC. VIPER also make it easier to isolate dependencies (e.g. backend). 
@@ -38,7 +35,3 @@ I also create some classes and protocols.
 
 ![PassingData Diagram](https://raw.github.com/harry-91/AppStoreOffsiteTest/master/Assets/PassingData_Diagram.jpg)
 
-
-
-
-# Screenshots

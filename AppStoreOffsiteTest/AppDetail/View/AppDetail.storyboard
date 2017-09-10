@@ -111,25 +111,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFe-Gt-9dk">
-                                        <rect key="frame" x="8" y="384" width="1239" height="345"/>
-                                        <mutableString key="text">Search
-For searching the apps displayed in app listing and recommendation section by matching the keyword;
-The search keyword text field is located at the top of the page, and remains the position even app listing is scrolled;
-Once the search is performed, app listing and recommendation section only shows the apps whose app name, category, author or summary contains the keyword;
-Search is performed immediately when the keyword is typed;
-
-Hints for Bonus
-Use of React Native for App Development;
-Show architectural pattern (e.g. MVC, MVVM, MVP...)
-Add exceptional cases handling, eg. poor network;
-Show loading indicator when fetching data;
-Add row scroll-in animation;
-Any other interesting features or things that can show your skills;
-
-Quality requirement
-Store the API response data locally with data model;
-Follow the best practice of the corresponding platform;</mutableString>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFe-Gt-9dk">
+                                        <rect key="frame" x="8" y="384" width="327" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -146,6 +129,7 @@ Follow the best practice of the corresponding platform;</mutableString>
                                     <constraint firstItem="ucw-2g-cwG" firstAttribute="leading" secondItem="Jj5-0M-2Ma" secondAttribute="leading" constant="8" id="dDW-e3-Dog"/>
                                     <constraint firstItem="JoK-od-Vve" firstAttribute="width" secondItem="Jj5-0M-2Ma" secondAttribute="width" constant="-16" id="eZw-Nq-mV4"/>
                                     <constraint firstItem="ucw-2g-cwG" firstAttribute="top" secondItem="ovu-ht-GnF" secondAttribute="bottom" constant="15" id="oZO-jb-x1W"/>
+                                    <constraint firstAttribute="trailing" secondItem="rFe-Gt-9dk" secondAttribute="trailing" constant="8" id="oga-4e-yAd"/>
                                     <constraint firstAttribute="trailing" secondItem="JoK-od-Vve" secondAttribute="trailing" constant="8" id="ovZ-MY-Qha"/>
                                     <constraint firstItem="ovu-ht-GnF" firstAttribute="top" secondItem="JoK-od-Vve" secondAttribute="bottom" constant="5" id="yQ4-0d-uxA"/>
                                 </constraints>

@@ -74,8 +74,6 @@ class AppStoreAPIClient: HTTPClient {
                             }
                             
                             guard let results = ((object as? JSONObject)?["feed"] as? JSONObject)?["entry"] as? [JSONObject] else {
-                                // create new error
-                                
                                 DispatchQueue.performOnMain({
                                     completion([], error)
                                 })
@@ -124,7 +122,6 @@ class AppStoreAPIClient: HTTPClient {
             fetchAppDetails(of: app.identifier, completion: { (jsonObject, error) in
                 guard let jsonObject = jsonObject,
                     error == nil else {
-                        // new error
                         completion([], error)
                         
                         return
