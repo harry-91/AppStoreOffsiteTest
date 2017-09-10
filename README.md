@@ -9,7 +9,7 @@ App Store listing page.
 
 # Demo
 
-![Demo](https://raw.github.com/harry-91/AppStoreOffsiteTest/master/Assets/Demo.gif)
+![demo](Assets/Demo.gif)
 
 
 # Architectural
