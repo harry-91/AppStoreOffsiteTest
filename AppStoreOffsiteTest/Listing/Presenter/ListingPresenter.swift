@@ -35,6 +35,7 @@ class ListingPresenter: ListingModuleInterface {
             self?.apps = apps
             
             self?.userInterface?.reloadData()
+            self?.userInterface?.hideLoading()
         })
     }
     
@@ -47,6 +48,7 @@ class ListingPresenter: ListingModuleInterface {
             self?.grossingApps = apps
             self?.userInterface?.reloadRows(at: [IndexPath(row: 0,
                                                            section: 0)])
+            self?.userInterface?.hideLoading()
         })
     }
     
@@ -164,6 +166,12 @@ class ListingPresenter: ListingModuleInterface {
         
         grossingApps = filteredGrossingApps
         apps = filteredApps
+        
+        if grossingApps.count == 0 && apps.count == 0 {
+            userInterface?.showNoResultView()
+        } else {
+            userInterface?.hideNoResultView()
+        }
     }
     
     func searchBarTextDidBeginEditing() {

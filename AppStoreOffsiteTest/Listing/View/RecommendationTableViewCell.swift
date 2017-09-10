@@ -12,9 +12,23 @@ class RecommendationTableViewCell: UITableViewCell {
     
     @IBOutlet weak fileprivate var scrollView: HorizontalScrollView!
     
+    fileprivate lazy var emptyView: EmptyPlaceholderView = {
+        let emptyView = EmptyPlaceholderView(frame: self.bounds)
+        emptyView.backgroundColor = .white
+        emptyView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        emptyView.title = "No Result"
+        emptyView.isHidden = true
+        
+        self.addSubview(emptyView)
+        
+        return emptyView
+    }()
+    
     var grossingApps = [App]() {
         didSet {
             scrollView.apps = grossingApps
+            
+            emptyView.isHidden = grossingApps.count != 0
         }
     }
 

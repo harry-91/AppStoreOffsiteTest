@@ -20,6 +20,23 @@ class ListingTableViewController: UITableViewController {
         return searchBar
     }()
     fileprivate var isCancelButtonClicked = false
+    fileprivate lazy var loadingView: LoadingPlaceholderView = {
+        let loadingView = LoadingPlaceholderView(frame: self.tableView.bounds)
+        loadingView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        return loadingView
+    }()
+    fileprivate lazy var emptyView: EmptyPlaceholderView = {
+        let emptyView = EmptyPlaceholderView(frame: self.tableView.bounds)
+        emptyView.backgroundColor = .white
+        emptyView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        emptyView.title = "No Result"
+        emptyView.isHidden = true
+        
+        self.tableView.addSubview(emptyView)
+        
+        return emptyView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +53,8 @@ class ListingTableViewController: UITableViewController {
         tableView.addInfiniteScrolling { [weak self] in
             self?.eventHandler?.loadMoreApps()
         }
+        
+        tableView.addSubview(loadingView)
     }
 
     override func didReceiveMemoryWarning() {
@@ -120,6 +139,18 @@ extension ListingTableViewController: ListingViewInterface {
     
     func enableInfiniteScrolling() {
         tableView.showsInfiniteScrolling = true
+    }
+    
+    func hideLoading() {
+        loadingView.isHidden = true
+    }
+    
+    func showNoResultView() {
+        emptyView.isHidden = false
+    }
+    
+    func hideNoResultView() {
+        emptyView.isHidden = true
     }
 }
 

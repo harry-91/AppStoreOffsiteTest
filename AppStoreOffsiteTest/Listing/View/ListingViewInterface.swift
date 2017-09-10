@@ -14,4 +14,8 @@ protocol ListingViewInterface: class {
     func performUpdates(at indexPathes: [IndexPath])
     func disableInfiniteScrolling()
     func enableInfiniteScrolling()
+    
+    func hideLoading()
+    func showNoResultView()
+    func hideNoResultView()
 }
