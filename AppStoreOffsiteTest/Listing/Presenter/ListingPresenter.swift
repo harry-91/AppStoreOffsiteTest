@@ -176,6 +176,7 @@ class ListingPresenter: ListingModuleInterface {
     
     func searchBarTextDidBeginEditing() {
         userInterface?.disableInfiniteScrolling()
+        userInterface?.hideNoResultView()
         
         storedApps.removeAll()
         storedGrossingApps.removeAll()
