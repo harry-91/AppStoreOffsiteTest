@@ -92,7 +92,7 @@ class ListingPresenter: ListingModuleInterface {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "RecommendationTableViewCell",
                                                      for: indexPath) as! RecommendationTableViewCell
-            
+            cell.delegate = self
             cell.grossingApps = grossingApps
             
             return cell
@@ -134,6 +134,7 @@ class ListingPresenter: ListingModuleInterface {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        wireframe?.pushAppDetailInterface(with: apps[indexPath.row])
     }
     
     
@@ -198,5 +199,15 @@ class ListingPresenter: ListingModuleInterface {
         userInterface?.reloadData()
         
         userInterface?.enableInfiniteScrolling()
+    }
+}
+
+
+// MARK: - RecommendationTableViewCellDelegate
+
+extension ListingPresenter: RecommendationTableViewCellDelegate {
+    func recommendationTableViewCell(_ recommendationTableViewCell: RecommendationTableViewCell,
+                                     didSelectItemAt index: Int) {
+        wireframe?.pushAppDetailInterface(with: grossingApps[index])
     }
 }

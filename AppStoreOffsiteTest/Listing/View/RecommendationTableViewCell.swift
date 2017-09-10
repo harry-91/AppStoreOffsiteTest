@@ -8,7 +8,14 @@
 
 import UIKit
 
+protocol RecommendationTableViewCellDelegate: class {
+    func recommendationTableViewCell(_ recommendationTableViewCell: RecommendationTableViewCell,
+                                     didSelectItemAt index: Int)
+}
+
 class RecommendationTableViewCell: UITableViewCell {
+    
+    weak var delegate: RecommendationTableViewCellDelegate?
     
     @IBOutlet weak fileprivate var scrollView: HorizontalScrollView!
     
@@ -35,6 +42,8 @@ class RecommendationTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        scrollView.horizontalDelegate = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -42,5 +51,12 @@ class RecommendationTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+}
 
+extension RecommendationTableViewCell: HorizontalScrollViewDelegate {
+    func horizontalScrollView(_ horizontalScrollView: HorizontalScrollView,
+                              didSelectItemAt index: Int){
+        delegate?.recommendationTableViewCell(self,
+                                              didSelectItemAt: index)
+    }
 }

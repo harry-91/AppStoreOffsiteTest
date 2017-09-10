@@ -32,4 +32,14 @@ class ListingWireframe: Wireframe {
         
         return viewController
     }
+    
+    
+    // MARK: - Push wireframe
+    
+    func pushAppDetailInterface(with app: App) {
+        let wireframe = AppDetailWireframe()
+        let viewController = AppDetailWireframe.instantiateAppDetailViewController(wireframe, with: app)
+        
+        push(wireframe: wireframe, viewController: viewController)
+    }
 }
