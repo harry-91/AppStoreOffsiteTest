@@ -53,7 +53,7 @@ class BasicPlaceholderView: UIView {
                                                   attribute: .centerX,
                                                   multiplier: 1.0,
                                                   constant: 0.0)
-        centerConstraint.priority = 750
+        centerConstraint.priority = UILayoutPriority(rawValue: 750)
         allConstraints.append(centerConstraint)
 
         NSLayoutConstraint.activate(allConstraints)

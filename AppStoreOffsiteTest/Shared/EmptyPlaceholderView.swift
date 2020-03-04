@@ -20,8 +20,8 @@ class EmptyPlaceholderView: BasicPlaceholderView {
 
             titleLabel.attributedText =
                 NSAttributedString(string: title,
-                                   attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 18),
-                                                NSForegroundColorAttributeName: UIColor.black])
+                                   attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18),
+                                                NSAttributedString.Key.foregroundColor: UIColor.black])
         }
 
         get {
@@ -38,8 +38,8 @@ class EmptyPlaceholderView: BasicPlaceholderView {
 
             detailsLabel.attributedText =
                 NSAttributedString(string: details,
-                                   attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 16),
-                                                NSForegroundColorAttributeName: UIColor.gray])
+                                   attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16),
+                                                NSAttributedString.Key.foregroundColor: UIColor.gray])
         }
 
         get {

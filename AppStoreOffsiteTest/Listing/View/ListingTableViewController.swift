@@ -78,7 +78,7 @@ class ListingTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return eventHandler?.heightForRow(at: indexPath) ?? UITableViewAutomaticDimension
+        return eventHandler?.heightForRow(at: indexPath) ?? UITableView.automaticDimension
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -93,7 +93,7 @@ class ListingTableViewController: UITableViewController {
             return 70
         }
         
-        return UITableViewAutomaticDimension
+        return UITableView.automaticDimension
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

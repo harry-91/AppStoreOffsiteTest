@@ -34,7 +34,7 @@ open class HTTPClient: NSObject {
 
 
 public extension HTTPClient {
-    public typealias RequestCompletion = (Any?, Error?) -> Void
+    typealias RequestCompletion = (Any?, Error?) -> Void
     
     private func task(for method: HTTPMethod,
                       endpoint: String,

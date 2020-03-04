@@ -96,7 +96,7 @@ final class HorizontalScrollView: UIScrollView {
     fileprivate func setup() {
         delegate = self
 
-        decelerationRate = UIScrollViewDecelerationRateFast
+        decelerationRate = UIScrollView.DecelerationRate.fast
 
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
@@ -206,7 +206,7 @@ final class HorizontalScrollView: UIScrollView {
         let view = hitTest(touch.location(in: self), with: event)
 
         if let appView = view as? RecommendationAppView,
-            let index = appViews.index(of: appView) {
+            let index = appViews.firstIndex(of: appView) {
 
             selectedIndex = index
         }

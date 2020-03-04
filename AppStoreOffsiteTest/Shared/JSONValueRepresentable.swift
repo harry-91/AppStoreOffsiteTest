@@ -15,7 +15,7 @@ public protocol JSONValueRepresentable {
 
 
 public extension JSONValueRepresentable {
-    public static func from(jsonValue: Any?) -> Self? {
+    static func from(jsonValue: Any?) -> Self? {
         return jsonValue as? Self
     }
 }

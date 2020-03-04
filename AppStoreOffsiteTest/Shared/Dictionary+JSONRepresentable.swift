@@ -11,7 +11,7 @@ import Foundation
 // MARK: - Getting JSONObjectRepresentable
 
 public extension Dictionary where Key == String, Value == Any {
-    public func get<T: JSONObjectRepresentable>(_ name: Key, default value: T? = nil) -> T? {
+    func get<T: JSONObjectRepresentable>(_ name: Key, default value: T? = nil) -> T? {
         guard self[name] as? NSNull == nil else {
             return nil
         }
@@ -23,7 +23,7 @@ public extension Dictionary where Key == String, Value == Any {
         return T.from(jsonObject: object) ?? value
     }
     
-    public func getList<T: JSONObjectRepresentable>(_ name: Key, skipErrorObject flag: Bool = false) -> [T]? {
+    func getList<T: JSONObjectRepresentable>(_ name: Key, skipErrorObject flag: Bool = false) -> [T]? {
         guard let objects = self[name] as? [JSONObject] else {
             return nil
         }
@@ -36,7 +36,7 @@ public extension Dictionary where Key == String, Value == Any {
 // MARK: - Getting JSONValueRepresentable
 
 public extension Dictionary where Key == String, Value == Any {
-    public func get<T: JSONValueRepresentable>(_ name: Key, default value: T? = nil) -> T? {
+    func get<T: JSONValueRepresentable>(_ name: Key, default value: T? = nil) -> T? {
         guard self[name] as? NSNull == nil else {
             return nil
         }
@@ -44,7 +44,7 @@ public extension Dictionary where Key == String, Value == Any {
         return T.from(jsonValue: self[name]) ?? value
     }
     
-    public func getList<T: JSONValueRepresentable>(_ name: Key, skipErrorValue flag: Bool = false) -> [T]? {
+    func getList<T: JSONValueRepresentable>(_ name: Key, skipErrorValue flag: Bool = false) -> [T]? {
         guard let values = self[name] as? [Any] else {
             return nil
         }

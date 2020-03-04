@@ -54,7 +54,7 @@ open class Paginator<T: JSONObjectRepresentable> {
 
 
 public extension Paginator {
-    public static var sharedFetcher: ObjectsFetching {
+    static var sharedFetcher: ObjectsFetching {
         get { return Static.fetcher }
         set { Static.fetcher = newValue }
     }

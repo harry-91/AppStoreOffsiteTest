@@ -115,7 +115,7 @@ class ListingPresenter: ListingModuleInterface {
             return 100
             
         default:
-            return UITableViewAutomaticDimension
+            return UITableView.automaticDimension
         }
     }
     

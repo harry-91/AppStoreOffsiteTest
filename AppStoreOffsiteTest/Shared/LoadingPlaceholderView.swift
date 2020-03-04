@@ -12,7 +12,7 @@ class LoadingPlaceholderView: BasicPlaceholderView {
     override func setupViews() {
         super.setupViews()
 
-        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        let activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
         activityIndicator.color = .lightGray
         activityIndicator.startAnimating()
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false

@@ -136,7 +136,7 @@ public class URLRequestMultipartSerializer: URLRequestSerialization {
         
         // Set image data
         for (key, image) in images {
-            guard let imageData = UIImagePNGRepresentation(image),
+            guard let imageData = image.pngData(),
                 let stringData = (
                     "Content-Disposition: form-data; name=\"\(key)\"; filename=\"\(key).png\"\r\n" +
                     "Content-Type: image/png\r\n\r\n").data(using: .utf8)
