@@ -3,7 +3,7 @@
 iOS App (Swift)
 App Store listing page. 
 
-- Xcode 8.0 / Swift 3.1
+- Xcode 11.1 / Swift 5.0
 - iOS 9.0
 
 
